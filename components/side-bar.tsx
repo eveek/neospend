@@ -1,10 +1,44 @@
-import Image from 'next/image'
-import React from 'react'
+'use client'
 
-const SideBar = () => {
+import Image from 'next/image'
+import React, { useState, useEffect } from 'react'
+import NavLink from './nav-link'
+import { usePathname } from 'next/navigation'
+// import {
+//     Sidebar,
+//     SidebarContent,
+//     SidebarFooter,
+//     SidebarHeader,
+//     SidebarRail,
+//   } from "@/components/ui/sidebar"
+
+const AppSidebar = () => {
+    const pathname = usePathname()
+    const [activePage, setActivePage] = useState('')   
+    
+    useEffect(() => {
+        // Determine the active page based on the pathname
+        if (pathname === '/') {
+            setActivePage('dashboard')
+        } else if (pathname.startsWith('/transactions')) {
+            setActivePage('transactions')
+        } else if (pathname.startsWith('/analytics')) {
+            setActivePage('analytics')
+        } else if (pathname.startsWith('/accounts')) {
+            setActivePage('accounts')
+        } else if (pathname.startsWith('/budgets')) {
+            setActivePage('budgets')
+        } else if (pathname.startsWith('/settings')) {
+            setActivePage('settings')
+        } else {
+            setActivePage('')
+        }
+    }, [pathname])
+
+
   return (
-    <div className='w-[228px] bg-card px-5 py-8'>
-        <div className="flex gap-1 items-center">
+    <div className='w-[260px] bg-card px-5 py-6'>
+        <div className="flex gap-1 border-b-2 border-border items-center pb-6">
             <Image
                 src="/images/logo.png"
                 alt="NeoSpend Logo"
@@ -20,67 +54,22 @@ const SideBar = () => {
                 className="w-auto h-[24px]"
             />
         </div>
-        <nav className='w-full'>
-            <ul className='w-full flex flex-col gap-4'>
+        <nav className='w-full pt-6'>
+            <ul className='w-full flex flex-col gap-2'>
                 <li className='w-full'>
-                    <a href="" className='bg-primary/10 text-[16px] flex gap-3 rounded-[8px] text-primary px-4 py-2 w-full'>
-                        <Image
-                            src="/icons/home-active.svg"
-                            alt="Dashboard Icon"
-                            width={24}
-                            height={24}
-                            className="inline-block"
-                        />
-                        Dashboard
-                    </a>
+                    <NavLink href="/" icon="home" label="Dashboard" active={activePage == 'dashboard' ? true : false} />
                 </li>
                 <li className='w-full'>
-                    <a href="" className='text-[16px] flex gap-3 rounded-[8px] text-secondary px-4 py-2 w-full'>
-                        <Image
-                            src="/icons/transactions.svg"
-                            alt="Dashboard Icon"
-                            width={24}
-                            height={24}
-                            className="inline-block"
-                        />
-                        Transactions
-                    </a>
+                    <NavLink href="/transactions" icon="transactions" label="Transactions" active={activePage == 'transactions' ? true : false} />
                 </li>
                 <li className='w-full'>
-                    <a href="" className='bg-primary/10 text-[16px] flex gap-3 rounded-[8px] text-primary px-4 py-2 w-full'>
-                        <Image
-                            src="/icons/home-active.svg"
-                            alt="Dashboard Icon"
-                            width={24}
-                            height={24}
-                            className="inline-block"
-                        />
-                        Dashboard
-                    </a>
+                    <NavLink href="/budgets" icon="budgets" label="Budgets" active={activePage == 'budgets' ? true : false} />
                 </li>
                 <li className='w-full'>
-                    <a href="" className='bg-primary/10 text-[16px] flex gap-3 rounded-[8px] text-primary px-4 py-2 w-full'>
-                        <Image
-                            src="/icons/home-active.svg"
-                            alt="Dashboard Icon"
-                            width={24}
-                            height={24}
-                            className="inline-block"
-                        />
-                        Dashboard
-                    </a>
+                    <NavLink href="/analytics" icon="analytics" label="Analytics" active={activePage == 'analytics' ? true : false} />
                 </li>
                 <li className='w-full'>
-                    <a href="" className='bg-primary/10 text-[16px] flex gap-3 rounded-[8px] text-primary px-4 py-2 w-full'>
-                        <Image
-                            src="/icons/home-active.svg"
-                            alt="Dashboard Icon"
-                            width={24}
-                            height={24}
-                            className="inline-block"
-                        />
-                        Dashboard
-                    </a>
+                    <NavLink href="/accounts" icon="accounts" label="Accounts" active={activePage == 'accounts' ? true : false} />
                 </li>
             </ul>
         </nav>
@@ -88,4 +77,4 @@ const SideBar = () => {
   )
 }
 
-export default SideBar
+export default AppSidebar

@@ -1,4 +1,11 @@
-import SideBar from "@/components/side-bar";
+// import AppSide from "@/components/side-bar";
+import AppSidebar from "@/components/side-bar";
+import Header from "@/components/header";
+import {
+    SidebarInset,
+    SidebarProvider,
+    // SidebarTrigger,
+  } from "@/components/ui/sidebar"
 
 export default function RootLayout({
     children,
@@ -6,11 +13,14 @@ export default function RootLayout({
     children: React.ReactNode;
     }>) {
         return (
-            <div className="flex h-screen bg-background">
-                <SideBar />
-                <main>
-                    {children}
-                </main>
-            </div>
+            <SidebarProvider className="flex flex-r h-screen bg-background">
+                <AppSidebar />
+                <SidebarInset className="mt-6 mx-6 w-full flex flex-col">
+                    <Header />
+                    <main>
+                        {children}
+                    </main>
+                </SidebarInset>
+            </SidebarProvider>
         );
     }
