@@ -63,6 +63,7 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-brand-primary: var(--brand-primary);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -74,22 +75,25 @@
   --background: #F2F4F7;
   --foreground: #000000;
   --secondary-foreground: #5F6368;
-  --primary: #1A73E8;
+  --brand-primary: #1A73E8;
+  --primary: black;
+  --primary-foreground: #ffffff;
   --secondary: #5F6368;
   --border: #DADCE0;
-  --accent: #1A73E8;
+  --accent: rgb(26, 115, 232, 0.1);
   --card: #FFFFFF;
   --font-clash: "Clash Display Variable", sans-serif;
   --font-clash-medium: "Clash Display Medium", sans-serif;
   --font-poppins: "Poppins", sans-serif;
-  --sidebar: hsl(0 0% 98%);
+  --sidebar: #FFFFFF;
   --sidebar-foreground: hsl(240 5.3% 26.1%);
   --sidebar-primary: hsl(240 5.9% 10%);
   --sidebar-primary-foreground: hsl(0 0% 98%);
   --sidebar-accent: hsl(240 4.8% 95.9%);
   --sidebar-accent-foreground: hsl(240 5.9% 10%);
   --sidebar-border: hsl(220 13% 91%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  /* --sidebar-ring: #1A73E8; */
+  --sidebar-ring: #ffff;
 }
 
 .dark {

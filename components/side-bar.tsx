@@ -4,13 +4,44 @@ import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 import NavLink from './nav-link'
 import { usePathname } from 'next/navigation'
-// import {
-//     Sidebar,
-//     SidebarContent,
-//     SidebarFooter,
-//     SidebarHeader,
-//     SidebarRail,
-//   } from "@/components/ui/sidebar"
+import {
+    Sidebar,
+    SidebarContent,
+    // SidebarFooter,
+    SidebarHeader,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
+    // SidebarRail,
+    } from "@/components/ui/sidebar"
+
+const nav = [
+    {
+        link: "/",
+        icon: "home",
+        label: "Home"
+    },
+    {
+        link: "/transactions",
+        icon: "transactions",
+        label: "Transactions"
+    },
+    {
+        link: "/budgets",
+        icon: "budgets",
+        label: "Budgets"
+    },
+    {
+        link: "/analytics",
+        icon: "analytics",
+        label: "Analytics"
+    },
+    {
+        link: "/accounts",
+        icon: "accounts",
+        label: "Accounts"
+    },
+]
 
 const AppSidebar = () => {
     const pathname = usePathname()
@@ -19,7 +50,7 @@ const AppSidebar = () => {
     useEffect(() => {
         // Determine the active page based on the pathname
         if (pathname === '/') {
-            setActivePage('dashboard')
+            setActivePage('home')
         } else if (pathname.startsWith('/transactions')) {
             setActivePage('transactions')
         } else if (pathname.startsWith('/analytics')) {
@@ -37,43 +68,44 @@ const AppSidebar = () => {
 
 
   return (
-    <div className='w-[260px] bg-card px-5 py-6'>
-        <div className="flex gap-1 border-b-2 border-border items-center pb-6">
-            <Image
-                src="/images/logo.png"
-                alt="NeoSpend Logo"
-                width={500}
-                height={500}
-                className="w-10 h-10"
-            />
-            <Image
-                src="/images/logo-text.png"
-                alt="NeoSpend Logo"
-                width={500}
-                height={500}
-                className="w-auto h-[24px]"
-            />
-        </div>
-        <nav className='w-full pt-6'>
-            <ul className='w-full flex flex-col gap-2'>
-                <li className='w-full'>
-                    <NavLink href="/" icon="home" label="Dashboard" active={activePage == 'dashboard' ? true : false} />
-                </li>
-                <li className='w-full'>
-                    <NavLink href="/transactions" icon="transactions" label="Transactions" active={activePage == 'transactions' ? true : false} />
-                </li>
-                <li className='w-full'>
-                    <NavLink href="/budgets" icon="budgets" label="Budgets" active={activePage == 'budgets' ? true : false} />
-                </li>
-                <li className='w-full'>
-                    <NavLink href="/analytics" icon="analytics" label="Analytics" active={activePage == 'analytics' ? true : false} />
-                </li>
-                <li className='w-full'>
-                    <NavLink href="/accounts" icon="accounts" label="Accounts" active={activePage == 'accounts' ? true : false} />
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <Sidebar collapsible='icon' className='px-3 py-5 bg-card'>
+        <SidebarHeader className='!p-0'>
+            <SidebarMenu>
+                <SidebarMenuItem>
+                    <div className="flex gap-1 border-b-2 border-border items-center pb-5">
+                        <SidebarMenuButton className='!p-0 !w-fit !h-fit'>
+                            <Image
+                                src="/icons/Neospend-logo.svg"
+                                alt="NeoSpend Logo"
+                                width={500}
+                                height={500}
+                                className="w-[48px] h-auto"
+                            />
+                            <span className='font-clash-medium text-foreground text-2xl'>NeoSpend</span>
+                        </SidebarMenuButton>
+                    </div>
+                </SidebarMenuItem>
+            </SidebarMenu>
+        </SidebarHeader>
+        <SidebarContent>
+            <nav className='w-full pt-5'>
+                <ul className='w-full flex flex-col gap-4'>
+                    {
+                        nav.map((item, index) => (
+                            <li key={index} className='w-full'>
+                                <NavLink
+                                    href={item.link}
+                                    icon={item.icon}
+                                    label={item.label}
+                                    active={activePage === item.label.toLowerCase()}
+                                />
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+        </SidebarContent>
+    </Sidebar>
   )
 }
 
