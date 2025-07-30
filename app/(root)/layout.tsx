@@ -15,9 +15,9 @@ export default function RootLayout({
         return (
             <SidebarProvider className="flex flex-r h-screen bg-background">
                 <AppSidebar />
-                <SidebarInset className="mt-5 mx-3 w-full flex flex-col">
+                <SidebarInset className="pt-5 overflow-y-hidden mx-3 w-full flex-1 flex flex-col">
                     <Header />
-                    <main>
+                    <main className="flex-1 overflow-auto pt-5">
                         {children}
                     </main>
                 </SidebarInset>

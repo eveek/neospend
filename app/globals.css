@@ -64,10 +64,14 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-good: var(--good);
+  --color-bad: var(--bad);
+  --color-pend: var(--pend);
 }
 
 :root {
@@ -76,6 +80,7 @@
   --foreground: #000000;
   --secondary-foreground: #5F6368;
   --brand-primary: #1A73E8;
+  --brand-secondary: #2C4992;
   --primary: black;
   --primary-foreground: #ffffff;
   --secondary: #5F6368;
@@ -94,6 +99,9 @@
   --sidebar-border: hsl(220 13% 91%);
   /* --sidebar-ring: #1A73E8; */
   --sidebar-ring: #ffff;
+  --good: #00B386;
+  --bad: #FF4D4F;
+  --pend: #FF910A;
 }
 
 .dark {
@@ -146,4 +154,58 @@
   body {
     @apply bg-background text-foreground;
   }
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+.card {
+  width: 340px;
+  height: 200px;
+  border-radius: 16px;
+  /* background: linear-gradient(to right, #1A1A1A, #2C4992); */
+  background: linear-gradient(to right, #1A73E8, #2C4992);
+  /* background: #2C4992; */
+  color: white;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); */
+}
+
+.overlayOne {
+  position: absolute;
+  top: -200px;
+  left: -180px;
+  width: 400px;
+  height: 400px;
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  mix-blend-mode: overlay;
+}
+.overlayTwo {
+  position: absolute;
+  bottom: -200px;
+  left: -180px;
+  width: 400px;
+  height: 400px;
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  mix-blend-mode: overlay;
+}
+
+main {
+  overflow: auto;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+
+  /* For WebKit (Chrome, Safari) */
+}
+
+main::-webkit-scrollbar {
+  display: none;
 }

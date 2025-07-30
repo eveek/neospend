@@ -60,7 +60,7 @@ const Header = () => {
         }
     }, [pathname])
   return (
-    <div className='h-[45px] box-content pb-5 flex justify-between items-center border-b-2 border-border'>
+    <div className='h-[45px] z-10 box-content pb-5 flex justify-between items-center border-b-2 border-border'>
         <div className="flex items-center gap-2">
             <SidebarTrigger />
             <div className="">
