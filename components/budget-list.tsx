@@ -30,26 +30,17 @@ const budgetItems: (BudgetItemProps & { targetBudget: number; usedBudget: number
 
 const BudgetList = () => {
 	return (
-		<div className="">
-			<div className="flex items-center justify-between">
-				<div className="flex items-center gap-2 text-foreground font-bold">
-					{/* <Budgets className="text-brand-primary" /> */}
-					Top Categories
-				</div>
-				<button></button>
-			</div>
-			<div className="flex flex-col gap-4 mt-4">
-				{budgetItems.map((item) => (
-					<BudgetItem
-						key={item.id}
-						id={item.id}
-						name={item.name}
-						color={item.color}
-            targetBudget={item.targetBudget}
-            usedBudget={item.usedBudget}
-					/>
-				))}
-			</div>
+		<div className="flex flex-col gap-4 mt-4">
+			{budgetItems.map((item) => (
+				<BudgetItem
+					key={item.id}
+					id={item.id}
+					name={item.name}
+					color={item.color}
+		targetBudget={item.targetBudget}
+		usedBudget={item.usedBudget}
+				/>
+			))}
 		</div>
 	)
 }

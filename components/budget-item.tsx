@@ -23,7 +23,7 @@ function hexToRgba(hex: string, alpha = 0.1) {
 
 const BudgetItem = ({ id, name, color, targetBudget, usedBudget }: BudgetItemProps) => {
   return (
-      <div className="flex items-center gap-2 p-3 rounded-lg border border-gray-300 transition-colors">
+      <div className="flex items-center gap-2 py-3 rounded-lg  border-gray-300 transition-colors">
         <div
           className="flex items-center justify-center w-10 h-10 rounded-full"
           style={{ backgroundColor: hexToRgba(color, 0.2) }}

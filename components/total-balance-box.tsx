@@ -6,46 +6,19 @@ import CountUp from 'react-countup';
 import Card from '@/components/card';
 // import { Card, CardContent } from "@/components/ui/card"
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
 } from "@/components/ui/carousel"
-
-const bankAccounts = [
-    {
-      bankName: "Zenith Bank",
-      accountType: "Checking",
-      accountNumber: "1234",
-      balance: 1234.56,
-    },
-    {
-      bankName: "Access Bank",
-      accountType: "Savings",
-      accountNumber: "5678",
-      balance: 8490.00,
-    },
-    {
-      bankName: "First Bank",
-      accountType: "Checking",
-      accountNumber: "9012",
-      balance: 305.75,
-    },
-    {
-      bankName: "GTBank",
-      accountType: "Savings",
-      accountNumber: "3456",
-      balance: 7321.89,
-    }
-  ]
-  
+import { bankAccounts } from '@/db/database';
 
 const TotalBalanceBox = () => {
     return (
         <div className='text-[16px] flex gap-6 text-secondary flex-col bg-card p-6 rounded-[12px]'> 
             <div className="text-center">
-                <h2 className='font-semibold tracking-normal'>Total Balance</h2>
+                <h2 className='font-semibold'>Total Balance</h2>
                 <CountUp 
                     end={14456.78} 
                     decimals={2}
