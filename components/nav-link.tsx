@@ -34,7 +34,7 @@ const NavLink = ({href, icon, label, active}: NavLinkProps) => {
     return (
         <SidebarMenu>
             <SidebarMenuItem>
-                <Link href={href} className={`${active ? 'bg-brand-primary/10' : ''}  ${active? "" : "opacity-60"} text-foreground text-[16px] hover:bg-brand-primary/10 flex gap-3 rounded-[8px] w-full`}>
+                <Link href={href} className={`${active ? 'bg-brand-primary/10' : ''}  ${active? "" : "text-secondary"} text-foreground text-[16px] hover:bg-brand-primary/10 flex gap-3 rounded-[8px] w-full`}>
                     <SidebarMenuButton
                     className="px-3 py-2 flex gap-3  items-center w-full h-full"
                     tooltip={label}

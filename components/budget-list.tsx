@@ -37,8 +37,8 @@ const BudgetList = () => {
 					id={item.id}
 					name={item.name}
 					color={item.color}
-		targetBudget={item.targetBudget}
-		usedBudget={item.usedBudget}
+					targetBudget={item.targetBudget}
+					usedBudget={item.usedBudget}
 				/>
 			))}
 		</div>

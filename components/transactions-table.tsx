@@ -17,7 +17,7 @@ import {
       <div>
         <Table>
           {/* <TableCaption>A list of your recent transactions.</TableCaption> */}
-          <TableHeader>
+          <TableHeader id="transactions-header">
             <TableRow>
               <TableHead className="w-[100px]">Description</TableHead>
               <TableHead>Amount ($)</TableHead>
@@ -27,7 +27,7 @@ import {
               <TableHead className="text-right">Action</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
+          <TableBody className="text-foreground">
             {transactions.slice(0, prop).map((tx, idx) => (
               <TableRow key={idx}>
                 <TableCell className="font-medium">{tx.description}</TableCell>
